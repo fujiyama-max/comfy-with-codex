@@ -1,0 +1,20 @@
+{
+  "workflow": "../workflows/animagine-xl-api.json",
+  "nodes": {
+    "positive": "2",
+    "negative": "3",
+    "seed": "5"
+  },
+  "defaults": {
+    "seed": 739204681,
+    "negative_prompt": "lowres, blurry, worst quality, bad anatomy, bad hands, extra fingers, text, watermark, signature",
+    "output_dir": "outputs",
+    "settings": {
+      "1.ckpt_name": "animagine-xl-4.0-opt.safetensors",
+      "4.width": 1920,
+      "4.height": 1080,
+      "5.steps": 20,
+      "5.cfg": 5.0
+    }
+  }
+}

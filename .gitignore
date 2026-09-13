@@ -1,0 +1,15 @@
+# Python virtual environments and caches
+.comfy-env/
+__pycache__/
+*.py[cod]
+
+# Generated ComfyUI images
+comfy-image/outputs/
+
+# macOS
+.DS_Store
+
+# Local-only build history and machine-specific dependency files
+history.md
+override.txt
+requirements.compiled

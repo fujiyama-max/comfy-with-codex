@@ -1,0 +1,4 @@
+interface:
+  display_name: "Comfy Image"
+  short_description: "ローカルComfyUIを使い画像生成ジョブを安全に実行します"
+  default_prompt: "Use $comfy-image to generate this image with local ComfyUI."
