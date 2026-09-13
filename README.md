@@ -34,3 +34,28 @@ cd comfy-with-codex
 ```
 
 プロジェクトごとにワークフロー、モデル、seed、サンプラー設定を保持できます。詳細は [setup.md](setup.md) を参照してください。
+
+## 各プロジェクトで使う
+
+`comfy-image` スキルは、呼び出したプロジェクトのルートを作業対象として扱います。ComfyUIの共通セットアップを済ませた後、画像を作りたいプロジェクトをCodexで開き、次のように依頼します。
+
+```text
+/comfy-image 夕暮れの海辺を歩くアニメ風の少年を生成して
+```
+
+初回実行時、スキルは次の順で設定を解決します。
+
+1. `<project-root>/comfy-image/comfy-image.project.json` を確認する。
+2. 設定がなければ、`<project-root>/workflows/*.json` から API形式ワークフローを探す。
+3. 使用可能なワークフローが見つかれば、次を作成する。
+
+```text
+<project-root>/
+└── comfy-image/
+    ├── comfy-image.project.json  # ワークフロー、モデル、seed、既定値
+    └── outputs/                  # 生成画像
+```
+
+以後の生成では、そのプロジェクトの `comfy-image.project.json` にあるモデル・seed・サイズ・サンプラー設定を使用し、画像を `comfy-image/outputs/` に保存します。
+
+ワークフローがない完全な新規プロジェクトでは、モデル名やノードIDを安全に決められません。先にComfyUIでワークフローを作成し、**Save (API Format)** で `<project-root>/workflows/` へ保存してください。その後に `/comfy-image` を呼び出すと、プロジェクト設定を作成できます。
